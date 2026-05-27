@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://tymgoielh63c"]
+
+[ext_resource type="Script" uid="uid://ck0odsghi1hnw" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://k50hqycxfrmf" path="res://Assets/Doctor.png" id="1_rpqav"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyqiw"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(46, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpqav"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(23, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewec"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(92, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
+atlas = ExtResource("1_rpqav")
+region = Rect2(69, 0, 23, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dewec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyqiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpqav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dewec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntrk")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpqav"]
+radius = 4.513096
+height = 15.065903
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1409192938]
+script = ExtResource("1_kyqiw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2017998459]
+position = Vector2(0.057304382, -0.2578869)
+scale = Vector2(1.144517, 1.0984991)
+sprite_frames = SubResource("SpriteFrames_dewec")
+animation = &"Moving"
+autoplay = "Moving"
+frame_progress = 0.71236277
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=637463566]
+position = Vector2(0.5, 0)
+shape = SubResource("CapsuleShape2D_rpqav")
